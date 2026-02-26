@@ -34,7 +34,6 @@ wget https://gitlab.cern.ch/geant4/geant4/-/archive/v11.2.1/geant4-v11.2.1.tar.g
 
 1.3 Setup installation and compile
 
-
 gunzip geant4-v11.2.1.tar.gz
 
 tar -xvf geant4-v11.2.1.tar
@@ -105,6 +104,8 @@ mkdir jsoncpp-build
 cd jsoncpp-build
 
 cmake -DJSONCPP_WITH_PKGCONFIG_SUPPORT=OFF -DJSONCPP_WITH_TESTS=OFF ../jsoncpp/
+
+make
 
 cd $HOME/
 

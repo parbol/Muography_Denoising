@@ -1,15 +1,5 @@
 #!/bin/bash
 
-if [ $HOSTNAME == "galois" ]; then
-    echo "Setting up environment in Galois"
-    export G4INSTALLDIR=/home/pablo/Documentos/Muography_Denoising/geant4-v11.2.1-install
-    export G4WORKDIR=/home/pablo/Documentos/newMuography_Denoising/Muography_Denoising/
-    export JSONCPPDIR=/home/pablo/jsoncpp/
-    source $G4INSTALLDIR/bin/geant4.sh
-    export PYTHONPATH=$G4WORKDIR/MuonGeneration/dataAnalysis/
-    source /home/pablo/root_v6.28.04-install/bin/thisroot.sh
-fi
-
 
 if [ $HOSTNAME == "Minkowski" ]; then
     echo "Setting up environment in Minkowski"
@@ -30,4 +20,27 @@ if [ $HOSTNAME == "Leibniz" ]; then
     export PYTHONPATH=$G4WORKDIR/MuonGeneration/dataAnalysis/
     source /home/pablo/Documentos/software/root_v6.36.00-install/bin/thisroot.sh
 fi
+
+
+if [ $HOSTNAME == "login2.ifca.es" ] && [ $USER == "parbol" ]; then
+    echo "Setting up environment in login2"
+    export G4INSTALLDIR=/gpfs/users/parbol/geant4-v11.1.2-install
+    export G4WORKDIR=/gpfs/users/parbol/Muography_Denoising/
+    export JSONCPPDIR=/gpfs/users/parbol/jsoncpp/
+    source $G4INSTALLDIR/bin/geant4.sh
+    export PYTHONPATH=$G4WORKDIR/MuonGeneration/dataAnalysis/
+    source /gpfs/users/parbol/root_v6.28.04-install/bin/thisroot.sh
+fi
+
+
+if [ $HOSTNAME == "login2.ifca.es" ] && [ $USER == "dominguezs" ]; then
+    echo "Setting up environment in login2"
+    export G4INSTALLDIR=/gpfs/users/dominguezs/geant4-v11.1.2-install
+    export G4WORKDIR=/gpfs/users/dominguezs/Muography_Denoising/
+    export JSONCPPDIR=/gpfs/users/dominguezs/jsoncpp/
+    source $G4INSTALLDIR/bin/geant4.sh
+    export PYTHONPATH=$G4WORKDIR/MuonGeneration/dataAnalysis/
+    #source /home/pablo/Documentos/software/root_v6.36.00-install/bin/thisroot.sh
+fi
+
 
