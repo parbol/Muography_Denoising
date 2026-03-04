@@ -132,7 +132,9 @@ source setup.sh
 -------------------------------------------------------------
 
 cd cry/cry_v1.7/
+
 source setup.sh
+
 make
 
 
