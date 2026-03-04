@@ -4,15 +4,8 @@
         "xSizeWorld":30000,
         "ySizeWorld":30000,
         "zSizeWorld":30000,
-        "zCeiling": 12000,
-        "sphereRadius": 40,
-        "sphereX": -12000,
-        "sphereY": 0,
-        "sphereZ": 150,
-        "maxPhi": 2.3562,
-        "minPhi": 0.7854,
-        "maxTheta": 1.3416,
-        "minTheta": 0
+        "sizeBoxCRY": 30000,
+        "zOffsetCRY": 30000
     },
     "Detectors":
     [
