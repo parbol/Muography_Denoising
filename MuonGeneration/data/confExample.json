@@ -1,26 +1,37 @@
 {
     "theWorld":
     {
-        "xSizeWorld":30000,
-        "ySizeWorld":30000,
-        "zSizeWorld":30000,
-        "sizeBoxCRY": 30000,
-        "zOffsetCRY": 30000
+        "xSizeWorld":300,
+        "ySizeWorld":300,
+        "zSizeWorld":300,
+        "sizeBoxCRY": 300,
+        "zOffsetCRY": 150
     },
     "Detectors":
     [
         {
             "xPosDetector":0,
             "yPosDetector":0,
-            "zPosDetector":50,
+            "zPosDetector":75,
             "xDirDetector":0,
             "yDirDetector":0,
             "zDirDetector":0,
-            "xSizeDetector":80,
-            "ySizeDetector":80,
-            "zSizeDetector":20,
+            "xSizeDetector":110,
+            "ySizeDetector":110,
+            "zSizeDetector":65,
             "Layers":
             [
+                {
+                    "xPosLayer":0,
+                    "yPosLayer":0,
+                    "zPosLayer":30,
+                    "xDirLayer":0,
+                    "yDirLayer":0,
+                    "zDirLayer":0,
+                    "xSizeLayer":105,
+                    "ySizeLayer":105,
+                    "zSizeLayer":0.1
+                },
                 {
                     "xPosLayer":0,
                     "yPosLayer":0,
@@ -28,33 +39,67 @@
                     "xDirLayer":0,
                     "yDirLayer":0,
                     "zDirLayer":0,
-                    "xSizeLayer":80,
-                    "ySizeLayer":80,
-                    "zSizeLayer":5,
-                    "Sensors":
-                    [
-                        {
-                            "xPosSensor":0,
-                            "yPosSensor":0,
-                            "zPosSensor":0,
-                            "xDirSensor":0,
-                            "yDirSensor":0,
-                            "zDirSensor":0,
-                            "xSizeSensor":2.5,
-                            "ySizeSensor":2.5,
-                            "zSizeSensor":1.0,
-                            "interPadx":0.05,
-                            "interPady":0.05,
-                            "xborder":0.005,
-                            "yborder":0.005,
-                            "nPadx":16,
-                            "nPady":16,
-                            "chargeThreshold":5,
-                            "noise":0.1,
-                            "tdcSigma":0.1,
-                            "gain":10.0
-                        }
-                    ]
+                    "xSizeLayer":105,
+                    "ySizeLayer":105,
+                    "zSizeLayer":0.1
+                },
+                {
+                    "xPosLayer":0,
+                    "yPosLayer":0,
+                    "zPosLayer":-30,
+                    "xDirLayer":0,
+                    "yDirLayer":0,
+                    "zDirLayer":0,
+                    "xSizeLayer":105,
+                    "ySizeLayer":105,
+                    "zSizeLayer":0.1
+                }
+            ]
+        },
+        {
+            "xPosDetector":0,
+            "yPosDetector":0,
+            "zPosDetector":-75,
+            "xDirDetector":0,
+            "yDirDetector":0,
+            "zDirDetector":0,
+            "xSizeDetector":110,
+            "ySizeDetector":110,
+            "zSizeDetector":65,
+            "Layers":
+            [
+                {
+                    "xPosLayer":0,
+                    "yPosLayer":0,
+                    "zPosLayer":30,
+                    "xDirLayer":0,
+                    "yDirLayer":0,
+                    "zDirLayer":0,
+                    "xSizeLayer":105,
+                    "ySizeLayer":105,
+                    "zSizeLayer":0.1
+                },
+                {
+                    "xPosLayer":0,
+                    "yPosLayer":0,
+                    "zPosLayer":0,
+                    "xDirLayer":0,
+                    "yDirLayer":0,
+                    "zDirLayer":0,
+                    "xSizeLayer":105,
+                    "ySizeLayer":105,
+                    "zSizeLayer":0.1
+                },
+                {
+                    "xPosLayer":0,
+                    "yPosLayer":0,
+                    "zPosLayer":-30,
+                    "xDirLayer":0,
+                    "yDirLayer":0,
+                    "zDirLayer":0,
+                    "xSizeLayer":105,
+                    "ySizeLayer":105,
+                    "zSizeLayer":0.1
                 }
             ]
         }
