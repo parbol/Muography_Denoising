@@ -4,6 +4,7 @@
 #include "G4VUserPhysicsList.hh"
 #include "globals.hh"
 
+
 class PhysicsList: public G4VUserPhysicsList
 {
 public:
@@ -30,6 +31,7 @@ protected:
     // these methods Construct physics processes and register them
     void ConstructGeneral();
     void ConstructInteractions();
+    
 };
 
 #endif

@@ -176,6 +176,7 @@ void PrimaryGeneratorAction::CRYFromFile(G4String newValue) {
 //----------------------------------------------------------------------//
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
 
+
     if (InputState != 0) {
         G4String* str = new G4String("CRY library was not successfully initialized");
         G4Exception("PrimaryGeneratorAction", "1", RunMustBeAborted, *str);

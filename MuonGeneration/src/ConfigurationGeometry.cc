@@ -44,8 +44,8 @@ ConfigurationGeometry::ConfigurationGeometry(G4String file) {
         uniSizeX = atof(root["theWorld"]["xSizeWorld"].asString().c_str())*CLHEP::cm;
         uniSizeY = atof(root["theWorld"]["ySizeWorld"].asString().c_str())*CLHEP::cm;
         uniSizeZ = atof(root["theWorld"]["zSizeWorld"].asString().c_str())*CLHEP::cm;
-        sizeBoxCRY = atof(root["TheWorld"]["sizeBoxCRY"].asString().c_str())*CLHEP::cm;
-	zOffsetCRY = atof(root["TheWorld"]["zOffsetCRY"].asString().c_str())*CLHEP::cm;
+        sizeBoxCRY = atof(root["theWorld"]["sizeBoxCRY"].asString().c_str())*CLHEP::cm;
+	zOffsetCRY = atof(root["theWorld"]["zOffsetCRY"].asString().c_str())*CLHEP::cm;
 
         if(uniSizeX <= 0 || uniSizeY <= 0|| uniSizeZ <= 0) {
             G4cerr << "\033[1;31m" << "The size of the Universe has been greater than 0" << "\033[0m" << G4endl;
@@ -58,7 +58,7 @@ ConfigurationGeometry::ConfigurationGeometry(G4String file) {
 
 	    for(G4int idet = 0; idet < Detectors.size(); ++idet) {
 
-	        G4double xPos = atof(root["Detectors"][idet]["xPosDetector"].asString().c_str()) * CLHEP::cm;
+	    G4double xPos = atof(root["Detectors"][idet]["xPosDetector"].asString().c_str()) * CLHEP::cm;
             G4double yPos = atof(root["Detectors"][idet]["yPosDetector"].asString().c_str()) * CLHEP::cm;
             G4double zPos = atof(root["Detectors"][idet]["zPosDetector"].asString().c_str()) * CLHEP::cm;
             G4double xDir = atof(root["Detectors"][idet]["xDirDetector"].asString().c_str()) * CLHEP::degree;
@@ -196,7 +196,6 @@ void ConfigurationGeometry::createG4objects(G4LogicalVolume *mother,
         detectors[i]->createG4Objects(G4String(std::to_string(detectors[i]->detId())),
                                       mother, materials, SDman);
     }
-
 }
 //----------------------------------------------------------------------//
 //----------------------------------------------------------------------//

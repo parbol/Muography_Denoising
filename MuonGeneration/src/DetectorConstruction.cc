@@ -78,7 +78,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
     G4VSolid* worldSolid = new G4Box("worldBox", myConf->getSizeX()/2.0 , myConf->getSizeY()/2.0 , myConf->getSizeZ()/2.0 );
     G4LogicalVolume* worldLogical = new G4LogicalVolume(worldSolid, materials["air"], "worldLogical",0,0,0);
     G4VPhysicalVolume* worldPhys = new G4PVPlacement(0, G4ThreeVector(0, 0, 0), worldLogical, "worldPhysical", worldLogicalPrim, false, 0);
-  
+ 
+    G4cout << "Creando los objetos" << G4endl; 
     myConf->createG4objects(worldLogical, materials, SDman);
     
     return worldPhys;

@@ -165,9 +165,8 @@ void PhysicsList::ConstructProcess() {
 #include "G4Decay.hh"
 
 void PhysicsList::ConstructGeneral() {
-
+    auto theParticleIterator = GetParticleIterator();
     G4Decay* theDecayProcess = new G4Decay();
-    auto theParticleIterator=GetParticleIterator();
     theParticleIterator->reset();
     while( (*theParticleIterator)() ) {
         G4ParticleDefinition* particle = theParticleIterator->value();
@@ -204,44 +203,46 @@ void PhysicsList::ConstructGeneral() {
 // Define interactions                                                  //
 //----------------------------------------------------------------------//
 void PhysicsList::ConstructInteractions() {
-
-    auto theParticleIterator=GetParticleIterator();
+    auto theParticleIterator = GetParticleIterator();
     theParticleIterator->reset();
     while( (*theParticleIterator)() ) {
         G4ParticleDefinition* particle = theParticleIterator->value();
         G4ProcessManager* pmanager = particle->GetProcessManager();
         G4String particleName = particle->GetParticleName();
-
+        
+        
         if (particleName == "gamma") {
             // Standard classes
-            //pmanager->AddDiscreteProcess(new G4PhotoElectricEffect());
-            //pmanager->AddDiscreteProcess(new G4ComptonScattering());
-            //pmanager->AddDiscreteProcess(new G4PolarizedCompton());
-            //pmanager->AddDiscreteProcess(new G4GammaConversion());
+            pmanager->AddDiscreteProcess(new G4PhotoElectricEffect());
+            pmanager->AddDiscreteProcess(new G4ComptonScattering());
+            pmanager->AddDiscreteProcess(new G4PolarizedCompton());
+            pmanager->AddDiscreteProcess(new G4GammaConversion());
         } else if (particleName == "e-") {
             // Standard classes:
-            //pmanager->AddProcess(new G4eMultipleScattering(),-1, 1,1);
+            pmanager->AddProcess(new G4eMultipleScattering(),-1, 1,1);
             pmanager->AddProcess(new G4eIonisation(),       -1, 2,2);
-            //pmanager->AddProcess(new G4eBremsstrahlung(),   -1,-1,3);
+            pmanager->AddProcess(new G4eBremsstrahlung(),   -1,-1,3);
 
         } else if (particleName == "e+") {
             // Standard classes:
-            //pmanager->AddProcess(new G4eMultipleScattering(),-1, 1,1);
+            pmanager->AddProcess(new G4eMultipleScattering(),-1, 1,1);
             pmanager->AddProcess(new G4eIonisation(),       -1, 2,2);
-            //pmanager->AddProcess(new G4eBremsstrahlung(),   -1,-1,3);
-            //pmanager->AddProcess(new G4eplusAnnihilation(),  0,-1,4);
+            pmanager->AddProcess(new G4eBremsstrahlung(),   -1,-1,3);
+            pmanager->AddProcess(new G4eplusAnnihilation(),  0,-1,4);
 
-        } else if( particleName == "mu+" ||
+        } else 
+            if( particleName == "mu+" ||
                    particleName == "mu-"    ) {
             //muon
             // Construct processes for muon+
+
             pmanager->AddProcess(new G4MuMultipleScattering(),-1,1,1);
             pmanager->AddProcess(new G4MuIonisation(),-1,2,2);
             pmanager->AddProcess(new G4MuBremsstrahlung(),-1,-1,3);
             pmanager->AddProcess(new G4MuPairProduction(),-1,-1,4);
-
-        } else if( particleName == "GenericIon" ) {
-            //pmanager->AddProcess(new G4hMultipleScattering(),-1,1,1);
+        } 
+            else if( particleName == "GenericIon" ) {
+            pmanager->AddProcess(new G4hMultipleScattering(),-1,1,1);
             pmanager->AddProcess(new G4hIonisation(),-1,2,2);
         } else {
             if ((particle->GetPDGCharge() != 0.0) &&
@@ -262,6 +263,7 @@ void PhysicsList::ConstructInteractions() {
 // Set cuts for the simulation of particles                             //
 //----------------------------------------------------------------------//
 void PhysicsList::SetCuts() {
+    
     SetCutsWithDefault();
     if (verboseLevel > 0) DumpCutValuesTable();
 }

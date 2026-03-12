@@ -103,7 +103,7 @@ int main(int argc,char** argv) {
 
     runManager->SetUserInitialization(myPhysicsList);
 
-    PrimaryGeneratorAction *myPrimaryGeneratorAction = new PrimaryGeneratorAction(geomConf, NULL, randomSeed, pt);
+    PrimaryGeneratorAction *myPrimaryGeneratorAction = new PrimaryGeneratorAction(geomConf, "bad.cry", randomSeed, pt);
     if(myPrimaryGeneratorAction == NULL) {
         G4cerr << "\033[1;31m" << "Problems in PrimaryGeneratorAction" << "\033[0m" << G4endl;
         return -1;
@@ -134,9 +134,11 @@ int main(int argc,char** argv) {
     
     visManager->Initialize();
     G4UImanager* UImanager = G4UImanager::GetUIpointer();
+    G4cout << "Starging the party joder" << G4endl;
 
     // Run or start UI session
     if ( ! ui ) {
+        G4cout << "Starging the party" << G4endl;
         runManager->BeamOn(numberOfEvents);
     } else { 
         UImanager->ApplyCommand("/control/execute init_vis.mac");

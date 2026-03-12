@@ -37,12 +37,12 @@ class EventLoader:
         for ev in f.hits:
             if event != ev.eventNumber:
                 newEvent = Event(ev.eventNumber, nDet, nLayer)
-                newEvent.add(ev.det, ev.layer, ev.energy, ev.x, ev.y, ev.z, ev.vx, ev.vy, ev.vz, ev.localx, ev.localy, ev.localz, ev.localvx, ev.localvy, ev.localvz)
+                newEvent.add(ev.det, ev.layer, ev.energy, ev.x, ev.y, ev.z, ev.vx, ev.vy, ev.vz, ev.localx, ev.localy, ev.localz, ev.localvx, ev.localvy, ev.localvz, ev.genID)
                 events.append(newEvent)
                 event = ev.eventNumber
                 counter = counter + 1
             else:
-                events[counter].add(ev.det, ev.layer, ev.energy, ev.x, ev.y, ev.z, ev.vx, ev.vy, ev.vz, ev.localx, ev.localy, ev.localz, ev.localvx, ev.localvy, ev.localvz)
+                events[counter].add(ev.det, ev.layer, ev.energy, ev.x, ev.y, ev.z, ev.vx, ev.vy, ev.vz, ev.localx, ev.localy, ev.localz, ev.localvx, ev.localvy, ev.localvz, ev.genID)
 
         f.Close()
     
